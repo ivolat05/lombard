@@ -8,13 +8,13 @@ const srcFolder = "./src"; // путь к папке с исходниками
 // cодержиться инофрмация о пути к файлам
 export const path = {
 	build: {
-		images: `${buildFolder}/assets/img/`,
-		js: `${buildFolder}/assets/js/`,
-		css: `${buildFolder}/assets/css/`,
+		images: `${buildFolder}/img/`,
+		js: `${buildFolder}/js/`,
+		css: `${buildFolder}/css/`,
 		html: `${buildFolder}/`,
-		fonts: `${buildFolder}/assets/fonts/`,
-		files: `${buildFolder}/assets/files/`,
-		svgicons: `${srcFolder}/assets/img/`,
+		fonts: `${buildFolder}/fonts/`,
+		files: `${buildFolder}/files/`,
+		svgicons: `${srcFolder}/img/`,
 	},
 	src: {
 		js: `${srcFolder}/assets/js/app.js`,
