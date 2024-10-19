@@ -11,12 +11,12 @@ import { plugins } from "./gulp/config/plugins.js";
 //передаем значение в глобальную переменную
 
 global.app = {
-    isBuild: process.argv.includes("--build"),
-    isDev: !process.argv.includes("--build"),
+	isBuild: process.argv.includes("--build"),
+	isDev: !process.argv.includes("--build"),
 
-    path: path,
-    gulp: gulp,
-    plugins: plugins,
+	path: path,
+	gulp: gulp,
+	plugins: plugins,
 };
 
 // импорт задач
@@ -26,30 +26,36 @@ import { reset } from "./gulp/tasks/reset.js";
 import { html } from "./gulp/tasks/html.js";
 import { server } from "./gulp/tasks/server.js";
 import { scss } from "./gulp/tasks/scss.js";
+import { css } from "./gulp/tasks/css.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
 import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
+import { copyWoffFonts } from "./gulp/tasks/copyWoffFonts.js";
 import { svgSprive } from "./gulp/tasks/svgSprive.js";
 import { zip } from "./gulp/tasks/zip.js";
 import { ftp } from "./gulp/tasks/ftp.js";
 // Наблюдатель за изменением файлов
 
 function watcher() {
-    gulp.watch(path.watch.files, copy);
-    gulp.watch(path.watch.html, html);
-    gulp.watch(path.watch.scss, scss);
-    gulp.watch(path.watch.js, js);
-    gulp.watch(path.watch.images, images);
+	gulp.watch(path.watch.files, copy);
+	gulp.watch(path.watch.html, html);
+	gulp.watch(path.watch.scss, scss);
+	gulp.watch(path.watch.css, css);
+	gulp.watch(path.watch.js, js);
+	gulp.watch(path.watch.images, images);
 }
 
 export { svgSprive };
 
 // Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+// Последовательная обработка шрифтов
+const fontsCopy = gulp.series(copyWoffFonts);
 // Основные задачи
 const mainTasks = gulp.series(
-    fonts,
-    gulp.parallel(copy, html, scss, js, images)
+	fonts,
+	fontsCopy,
+	gulp.parallel(copy, html, scss, css, js, images)
 );
 
 // построение сценариев выоления задач

@@ -20,7 +20,8 @@ export const path = {
 		js: `${srcFolder}/assets/js/app.js`,
 		images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp,xml,webmanifest}`,
 		svg: `${srcFolder}/assets/img/**/*.svg"`,
-		scss: `${srcFolder}/assets/scss/style.scss`,
+		scss: `${srcFolder}/assets/scss/*.scss`,
+		css: `${srcFolder}/assets/css/*.css`,
 		html: `${srcFolder}/pages/**/*.html`,
 		svgicons: `${srcFolder}/assets/svgicons/*.svg`,
 		files: `${srcFolder}/assets/files/**/*.*`,
@@ -35,6 +36,7 @@ export const path = {
 			srcFolder + "/assets/scss/**/*.scss",
 			srcFolder + "/assets/components/**/*.scss",
 		],
+		css: [srcFolder + "/assets/css/*.css"],
 		html: `${srcFolder}/**/*.html`,
 		files: `${srcFolder}/assets/files/**/*.*`, // указваем за какими папками следить
 	},
