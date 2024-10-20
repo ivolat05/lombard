@@ -358,9 +358,6 @@
 		opacity: 1;
 		transform: translateX(0) translateY(0) rotate(-3.15deg);
 
-		@media(max-width:992px) {
-			transform: translateX(0) translateY(0) rotate(5.33deg);
-		}
 	}
 }
 
@@ -392,9 +389,7 @@
 		opacity: 1;
 		transform: translateX(0) translateY(0) rotate(11.19deg);
 
-		@media(max-width:992px) {
-			transform: translateX(0) translateY(0) rotate(-5.23deg);
-		}
+
 	}
 }
 
@@ -431,9 +426,7 @@
 		opacity: 1;
 		transform: translateX(0) translateY(0) rotate(0deg);
 
-		@media(max-width:992px) {
-			transform: translateX(0) translateY(0) rotate(0);
-		}
+
 	}
 }
 
@@ -470,9 +463,7 @@
 		opacity: 1;
 		transform: translateX(0) translateY(0) rotate(-5.98deg);
 
-		@media(max-width:992px) {
-			transform: translateX(0) translateY(0) rotate(7.42deg);
-		}
+
 
 	}
 }
@@ -509,10 +500,6 @@
 	100% {
 		opacity: 1;
 		transform: translateX(0) translateY(0) rotate(7.09deg);
-
-		@media(max-width:992px) {
-			transform: translateX(0) translateY(0) rotate(-8.7deg);
-		}
 
 	}
 }
