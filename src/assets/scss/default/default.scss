@@ -1,46 +1,69 @@
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-	font-family: 'avenirnextcyr';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 18px;
-	line-height: 130%;
-}
-
-a {
-	text-decoration: none;
-	transition: .4s;
-}
-
-ul {
-	list-style: none;
-}
-
-button {
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background: none;
-	padding: 0;
-	transition: .4s;
-}
-
 .page {
-	display: flex;
+	overflow: hidden;
 	min-height: 100vh;
-	flex-direction: column;
+}
+
+.socials__link.btn-hover {
+	&::after {
+		background: none;
+	}
+}
+
+.btn-hover {
+	position: relative;
+	isolation: isolate;
 
 	overflow: hidden;
+
+
+
+	@media(hover:hover) {
+		&:hover {
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 150%;
+				height: 150%;
+				background-color: rgba(185, 216, 251, 0.9);
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				animation: ripple 1.5s linear infinite;
+				pointer-events: none;
+				z-index: -1;
+			}
+		}
+	}
+
+	@media(hover:none) {
+		&:active {
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 150%;
+				height: 150%;
+				background-color: rgba(185, 216, 251, 0.9);
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				animation: ripple 1.5s linear infinite;
+				pointer-events: none;
+				z-index: -1;
+			}
+		}
+	}
 }
 
+@keyframes ripple {
+	0% {
+		opacity: 1;
+		transform: scale(0);
+	}
 
-/* убираем тени safari */
-input:not([type="checkbox"]):not([type="radio"]),
-textarea,
-select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	100% {
+		opacity: 0;
+		transform: scale(2.5);
+	}
 }

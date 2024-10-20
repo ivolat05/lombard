@@ -22,4 +22,67 @@
 	.header__phone {
 		color: #fff;
 	}
+
+	.header__logo {
+		@media(max-width:572px) {
+			width: 124px;
+
+		}
+	}
+
+	.header__container {
+		@media(max-width:572px) {
+			align-items: center;
+		}
+	}
+
+	.hamburger {
+		background: rgba(255, 255, 255, .4);
+		border-color: rgba(255, 255, 255, 0);
+		border-radius: 6px;
+
+		.hamburger__line {
+			background: #fff;
+		}
+	}
+
+
+
+	@media (max-width: 991px) {
+		.header__phone {
+			background: rgba(255, 255, 255, .4);
+			border-color: rgba(255, 255, 255, 0);
+			border-radius: 6px;
+
+			svg {
+				stroke: #fff;
+			}
+		}
+	}
+
+	@media (max-width: 991px) {
+		.header__phone {
+			margin-left: 10px;
+		}
+	}
+}
+
+.header__right-coll {
+	margin-left: auto;
+	margin-right: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header__right-btn {
+	margin-right: 10px;
+	color: #fff;
+	background: rgba(255, 255, 255, .4);
+	border-color: rgba(255, 255, 255, 0);
+	display: none;
+
+	@media (max-width: 991px) {
+		display: block;
+		margin-right: 0;
+	}
 }

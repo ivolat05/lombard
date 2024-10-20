@@ -24,19 +24,7 @@
 	transition: .4s;
 	margin-top: 25px;
 
-	@media(hover:hover) {
-		&:hover {
-			background: #fff;
-			color: #325488;
-		}
-	}
 
-	@media(hover:none) {
-		&:active {
-			background: #fff;
-			color: #325488;
-		}
-	}
 
 	@media (min-width: 768px) {
 		margin-top: 0;
