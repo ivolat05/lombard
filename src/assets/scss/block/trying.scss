@@ -2,6 +2,63 @@
 	padding-top: 143px;
 	padding-bottom: 127px;
 
+	background: url("../../img/fon.png")no-repeat center center/cover;
 
-	background: #000;
+	@media(max-width:992px) {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	@media(max-width:572px) {
+		padding-top: 50px;
+		padding-bottom: 57px;
+	}
+}
+
+.trying-title {
+	color: #fff;
+
+	&::before {
+
+		background: #CFE5FF;
+		opacity: 0.2;
+
+	}
+}
+
+.trying-text {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 150%;
+	color: #fff;
+	max-width: 355px;
+	padding-top: 25px;
+
+	@media(max-width:992px) {
+		padding-top: 20px;
+	}
+
+	@media(max-width:572px) {
+		font-size: 16px;
+		padding-top: 11px;
+	}
+}
+
+.trying-btn {
+	border-color: #fff;
+	color: #fff;
+	width: fit-content;
+	margin-top: 60px;
+
+	@media(max-width:992px) {
+		margin-top: 40px;
+	}
+
+	@media(max-width:572px) {
+		margin-top: 15px;
+	}
+}
+
+.trying-wrapp {
+	padding-left: 25px;
 }
