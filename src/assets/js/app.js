@@ -40,3 +40,176 @@ function animateCounter(classBlock, start, end, duration, delay) {
 }
 
 animateCounter(".counter", 0, 95, 5000, 3600);
+
+// play audio
+
+function audioPlay() {
+	const btnStart = document.querySelectorAll(".example__player-btn");
+	if (btnStart) {
+		btnStart.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				const audioWrapp = btn.closest(".example__player");
+				const audio = audioWrapp.querySelector("audio");
+				audio.play();
+				if (!btn.classList.contains("--pause")) {
+					btn.classList.add("--pause");
+					audio.play();
+				} else {
+					audio.pause();
+					btn.classList.remove("--pause");
+				}
+			});
+		});
+	}
+}
+audioPlay();
+
+// tab
+
+const tab = () => {
+	const btnAllTab = document.querySelectorAll(".example__tab-btn");
+	if (btnAllTab) {
+		btnAllTab.forEach((btnTab) => {
+			btnTab.addEventListener("click", () => {
+				const attrTab = btnTab.getAttribute("data-tab");
+				const id = document.getElementById(attrTab);
+				deactiveBtnTab(btnAllTab);
+				activeBtn(btnTab);
+				deactiveTab();
+				activeTab(id);
+			});
+		});
+		activeLoadPageTab(btnAllTab);
+		window.addEventListener("resize", () => {
+			activeLoadPageTab(btnAllTab);
+		});
+	}
+};
+
+tab();
+
+function deactiveTab() {
+	const allTab = document.querySelectorAll(".example__tab");
+	if (allTab) {
+		allTab.forEach((tab) => {
+			tab.classList.remove("--active");
+		});
+	}
+}
+
+function activeTab(id) {
+	id.classList.add("--active");
+}
+
+function deactiveBtnTab(btnAllTab) {
+	btnAllTab.forEach((btn) => {
+		btn.classList.remove("--active");
+	});
+}
+
+function activeBtn(btn) {
+	btn.classList.add("--active");
+}
+
+function activeLoadPageTab(btnAllTab) {
+	const windowWidth = window.innerWidth;
+	const newButtonActivationTab = document.querySelector(
+		".example__tab-start"
+	);
+	let deactivableButton;
+	btnAllTab.forEach((btn) => {
+		if (btn.classList.contains("--active")) {
+			deactivableButton = btn;
+		}
+	});
+
+	if (windowWidth > 762) {
+		if (deactivableButton.classList.contains("example__tab-btn-analysis")) {
+			const attrTab = newButtonActivationTab.getAttribute("data-tab");
+			const id = document.getElementById(attrTab);
+			deactiveBtnTab(btnAllTab);
+			activeBtn(newButtonActivationTab);
+			deactiveTab();
+			activeTab(id);
+		}
+	}
+}
+
+const accordionExamplePage = () => {
+	const btns = document.querySelectorAll(".example__acc-btn");
+	if (btns) {
+		btns.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				deactiveBtnAccordionAll();
+				deactiveAllWrappAccordion();
+				accordionExamplePageActive(btn);
+			});
+		});
+	}
+};
+accordionExamplePage();
+
+function closeAllAccordionExamplePage() {
+	const allBtnClose = document.querySelectorAll(".example__button-close");
+
+	if (allBtnClose) {
+		allBtnClose.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				deactiveBtnAccordionAll();
+				deactiveAllWrappAccordion();
+			});
+		});
+	}
+}
+closeAllAccordionExamplePage();
+function accordionExamplePageActive(item, btns) {
+	let accordionWrapp = item.closest(".example__acc");
+	let panel = accordionWrapp.querySelector(".example__acc-wrapp");
+
+	item.classList.add("--active");
+	activeWrapp(panel);
+}
+
+function deactiveBtnAccordionAll() {
+	const btns = document.querySelectorAll(".example__acc-btn");
+	if (btns) {
+		btns.forEach((item) => {
+			item.classList.remove("--active");
+		});
+	}
+}
+function deactiveAllWrappAccordion() {
+	const accordionWrappAll = document.querySelectorAll(".example__acc-wrapp");
+	accordionWrappAll.forEach((panel) => {
+		panel.style.maxHeight = null;
+	});
+}
+
+function activeWrapp(panel) {
+	if (panel.style.maxHeight) {
+		panel.style.maxHeight = null;
+	} else {
+		positioningBlocksRelativeParentBlock(panel, panel.scrollHeight);
+		panel.style.maxHeight = panel.scrollHeight + "px";
+	}
+}
+
+function positioningBlocksRelativeParentBlock(ChildBlock, heightChildBlock) {
+	const parentBlock = document.querySelector(".example__wrapp");
+	if (parentBlock) {
+		const heightParentBlock = parentBlock.offsetHeight;
+
+		// Получаем координаты родителя и ребенка
+		const parentRect = parentBlock.getBoundingClientRect();
+		const childRect = ChildBlock.getBoundingClientRect();
+
+		const distance = childRect.top - parentRect.top;
+
+		const offsetHeightChild = distance + heightChildBlock;
+
+		if (offsetHeightChild > heightParentBlock) {
+			const correctiveOffset = heightParentBlock - offsetHeightChild;
+			ChildBlock.style.top = `${correctiveOffset}px`;
+		}
+	}
+}
