@@ -110,13 +110,13 @@ function deactiveBtnTab(btnAllTab) {
 function activeBtn(btn) {
 	btn.classList.add("--active");
 }
-
+// измененая функция
 function activeLoadPageTab(btnAllTab) {
 	const windowWidth = window.innerWidth;
-	const newButtonActivationTab = document.querySelector(
-		".example__tab-start"
-	);
+	let btnActive;
+	let attrTab;
 	let deactivableButton;
+
 	btnAllTab.forEach((btn) => {
 		if (btn.classList.contains("--active")) {
 			deactivableButton = btn;
@@ -125,13 +125,18 @@ function activeLoadPageTab(btnAllTab) {
 
 	if (windowWidth > 762) {
 		if (deactivableButton.classList.contains("example__tab-btn-analysis")) {
-			const attrTab = newButtonActivationTab.getAttribute("data-tab");
-			const id = document.getElementById(attrTab);
-			deactiveBtnTab(btnAllTab);
-			activeBtn(newButtonActivationTab);
-			deactiveTab();
-			activeTab(id);
+			btnActive = document.querySelector(".example__tab-start");
 		}
+	} else {
+		btnActive = document.querySelector(".example__tab-btn-analysis");
+	}
+	if (btnActive) {
+		attrTab = btnActive.getAttribute("data-tab");
+		const id = document.getElementById(attrTab);
+		deactiveBtnTab(btnAllTab);
+		activeBtn(btnActive);
+		deactiveTab();
+		activeTab(id);
 	}
 }
 
