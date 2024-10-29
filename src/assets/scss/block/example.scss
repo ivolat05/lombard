@@ -73,7 +73,8 @@
 
 .example__acc-wrapp {
 	max-width: 320px;
-	transition: .4s;
+	// изменено 29.10.2024
+	// удалено transition: .4s;
 	overflow: hidden;
 	max-height: 0;
 	position: absolute;
@@ -95,6 +96,11 @@
 		background: none;
 	}
 
+}
+
+// изменено 29.10.2024 добавлены стили
+.example__acc-btn.--active~.example__acc-wrapp {
+	transition: .4s;
 }
 
 .example__acc-head {

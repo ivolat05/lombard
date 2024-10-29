@@ -39,7 +39,10 @@ function animateCounter(classBlock, start, end, duration, delay) {
 	}
 }
 
-animateCounter(".counter", 0, 95, 5000, 3600);
+// изменено 29.10.2024
+//  изменен animateCounter(".counter", 0, 95, 5000, 3600);
+
+animateCounter(".counter", 0, 95, 5000, 1500);
 
 // play audio
 
