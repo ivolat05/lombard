@@ -83,14 +83,9 @@ const tab = () => {
 			});
 		});
 		activeLoadPageTab(btnAllTab);
-
-		let resizeTimeout;
-		window.addEventListener("resize", () => {
-			clearTimeout(resizeTimeout);
-			resizeTimeout = setTimeout(() => {
-				activeLoadPageTab(btnAllTab);
-			}, 200);
-		});
+		// window.addEventListener("resize", () => {
+		// 	activeLoadPageTab(btnAllTab);
+		// });
 	}
 };
 
