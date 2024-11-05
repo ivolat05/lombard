@@ -83,9 +83,9 @@ const tab = () => {
 			});
 		});
 		activeLoadPageTab(btnAllTab);
-		window.addEventListener("resize", () => {
-			activeLoadPageTab(btnAllTab);
-		});
+		// window.addEventListener("resize", () => {
+		// 	activeLoadPageTab(btnAllTab);
+		// });
 	}
 };
 
