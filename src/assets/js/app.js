@@ -83,6 +83,8 @@ const tab = () => {
 			});
 		});
 		activeLoadPageTab(btnAllTab);
+		// правка от 5.11.2024 баг переключения таобов при скролле в мобильной версии
+		// необходимо закоментирповать
 		// window.addEventListener("resize", () => {
 		// 	activeLoadPageTab(btnAllTab);
 		// });

@@ -9,3 +9,38 @@
  @import "../scss/block/trying.scss";
  @import "../scss/block/review.scss";
  @import "../scss/block/example.scss";
+
+ // 06.11.2024
+ @import "../scss/block/results-analysis.scss";
+ @import "../scss/block/banner.scss";
+
+ @media(max-width:768px) {
+ 	.example__wrapp {
+ 		position: relative;
+ 		isolation: isolate;
+
+ 		&::after {
+ 			content: "";
+ 			background: linear-gradient(to right, #F0F5F9, transparent);
+ 			width: 30px;
+ 			height: 55px;
+ 			left: 0;
+ 			top: 0;
+ 			z-index: 1;
+ 			position: absolute;
+ 			border-radius: 16px 0 0 0;
+ 		}
+
+ 		&::before {
+ 			content: "";
+ 			background: linear-gradient(to left, #F0F5F9, transparent);
+ 			width: 30px;
+ 			height: 55px;
+ 			right: 0;
+ 			top: 0;
+ 			z-index: 1;
+ 			position: absolute;
+ 			border-radius: 0 16px 0 0;
+ 		}
+ 	}
+ }
