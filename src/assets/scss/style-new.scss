@@ -46,6 +46,52 @@
  }
 
  /* 12.11.2024 analysis*/
+
+ .example__acc.--red .example__acc-btn.--active {
+ 	background: #fff2f2;
+ }
+
+ .example__acc-head.--red {
+ 	background: #D53536;
+ }
+
+ .example__acc.--orange .example__acc-btn.--active {
+ 	background: #fff9d6;
+ }
+
+ .example__acc-head.--orange {
+ 	background: #fabf3e;
+ }
+
+ .example__acc.--orange .example__acc-text::after {
+ 	background: #fabf3e;
+ }
+
+ @media (max-width: 762px) {
+ 	.example__acc-wrapp-text {
+ 		padding-top: 20px;
+ 	}
+
+ 	.example__analysis-list {
+ 		.example__acc-wrapp-text {
+ 			padding-top: 0px;
+ 		}
+ 	}
+
+ 	.example__acc.--orange {
+ 		.example__acc-wrapp-text {
+ 			background: #FFF9D6;
+ 		}
+ 	}
+
+ 	.example__acc.--red {
+ 		.example__acc-wrapp-text {
+ 			background: #FFF2F2;
+ 		}
+ 	}
+ }
+
+
  .header__padding-btn {
  	margin-left: auto;
  	margin-right: 30px;
