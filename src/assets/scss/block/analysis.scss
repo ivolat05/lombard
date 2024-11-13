@@ -552,3 +552,9 @@
 		transform: rotate(-180deg);
 	}
 }
+
+.analysis__modal {
+	.example__acc-wrapp {
+		overflow: hidden !important;
+	}
+}
