@@ -129,7 +129,11 @@ function activeLoadPageTab(btnAllTab) {
 	});
 
 	if (windowWidth > 762) {
-		if (deactivableButton.classList.contains("example__tab-btn-analysis")) {
+		// внесена правка 12.11.2024
+		if (
+			deactivableButton &&
+			deactivableButton.classList.contains("example__tab-btn-analysis")
+		) {
 			btnActive = document.querySelector(".example__tab-start");
 		}
 	} else {
@@ -223,3 +227,33 @@ function positioningBlocksRelativeParentBlock(ChildBlock, heightChildBlock) {
 		}
 	}
 }
+
+// add 12.11.2024
+
+// animate number
+/**
+ *
+ * @param {*} accWrapp - класс обертки аккордиона
+ * @param {*} btnsOpenAcc - класс кнопки раскрытия аккордиона
+ * @param {*} panelAcc - класс скрытой части аккордиона
+ */
+
+function accordionTable(accWrapp, btnsOpenAcc, panelAcc) {
+	const btnsOpen = document.querySelectorAll(`${btnsOpenAcc}`);
+	if (btnsOpen) {
+		btnsOpen.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				const accordionWrapp = btn.closest(`${accWrapp}`);
+				const panel = accordionWrapp.querySelector(`${panelAcc}`);
+				accordionWrapp.classList.toggle("--active");
+				activeWrapp(panel);
+			});
+		});
+	}
+}
+
+accordionTable(
+	".analysis__table-select",
+	".analysis-table-btn",
+	".analysis__table-select-wrapp"
+);

@@ -1,0 +1,105 @@
+<section class="contact-us">
+	<div class="container" id="contact-us">
+		<ul class="dots contact-us__dots">
+			<li class="dots__item dots__item--lg"></li>
+			<li class="dots__item dots__item--sm"></li>
+			<li class="dots__item dots__item--md"></li>
+			<li class="dots__item dots__item--lg dots__item--lilac dots__item--bagel"></li>
+			<li class="dots__item dots__item--lilac dots__item--sq"></li>
+		</ul>
+		<div class="row">
+			<div class="col contact-us__left">
+				<h2 class="title labeled labeled-purple contact-us__title">
+					<span>Открыты для общения</span>
+				</h2>
+				<div class="contact-us__items">
+					<article class="contact-us__item">
+						<div class="contact-us__icon-wrapper">
+							<div class="contact-us__icon-inner">
+								<img src="img/message-blue.svg" alt="">
+							</div>
+						</div>
+						<div class="contact-us__content">
+							<h3 class="title title--esm contact-us__subtitle">Пишите нам</h3>
+							<p class="contact-us__descr">в мессенджеры <br> на +7 (968) 096-59-40</p>
+							<ul class="socials socials--colored contact-us__socials">
+								<li class="socials__item">
+									<a class="socials__link  socials__link--telegram btn-hover"
+										href="https://telegram.me/xlombardbot" target="_blank">
+										<img src="img/telegram.svg" alt="">
+									</a>
+								</li>
+								<li class="socials__item">
+									<a class="socials__link socials__link--whatsapp btn-hover"
+										href="https://api.whatsapp.com/send?phone=79680965940" target="_blank">
+										<img src="img/whatsapp.svg" alt="">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
+					<article class="contact-us__item">
+						<div class="contact-us__icon-wrapper">
+							<div class="contact-us__icon-inner">
+								<img src="img/phone-colored-blue.svg" alt="">
+							</div>
+						</div>
+						<div class="contact-us__content">
+							<h3 class="title title--esm contact-us__subtitle">Звоните</h3>
+							<p class="contact-us__descr">с 10-00 до 18-00 по Мск</p>
+							<a class="title title--md link-opacity contact-us__phone" href="tel:+74956779551">+7
+								(495) 677-95-51</a>
+						</div>
+					</article>
+					<article class="contact-us__item">
+						<div class="contact-us__icon-wrapper">
+							<div class="contact-us__icon-inner">
+								<img src="img/map-pin-blue.svg" alt="">
+							</div>
+						</div>
+						<div class="contact-us__content">
+							<h3 class="title title--esm contact-us__subtitle">Приезжайте</h3>
+							<address class="contact-us__descr">Москва, ул. 3-я Северная линия, д. 14, оф. 2</address>
+							<a class="link contact-us__link" href="https://yandex.ru/maps/-/CDFFQ20u" target="_blank">
+								<span>Мы на Яндекс.Картах</span>
+							</a>
+						</div>
+					</article>
+				</div>
+			</div>
+			<div class="col-12 col-xl-7 contact-us__right">
+				<div class="contact-form contact-us__form">
+					<h3 class="title title--md contact-form__title">Ответим на любые вопросы: <b>расскажем, покажем и
+							дадим попробовать</b></h3>
+					<p class="contact-form__text">Проведём онлайн демонстрацию по Zoom!</p>
+					<div class="contact-form__content">
+						<label class="contact-form__field-wrapper">
+							<input class="contact-form__input" type="text" name="name" id="requestForm_Name">
+							<span class="contact-form__placeholder">Как к вам обращаться (ваше имя)</span>
+						</label>
+						<label class="contact-form__field-wrapper">
+							<input class="contact-form__input" type="tel" name="phone" id="requestForm_Phone">
+							<span class="contact-form__placeholder">Телефон, чтобы мы могли перезвонить</span>
+						</label>
+						<label class="contact-form__field-wrapper">
+							<input class="contact-form__input" type="email" name="email" id="requestForm_EMail">
+							<span class="contact-form__placeholder">Электронная почта для отправки ответа</span>
+						</label>
+						<label class="contact-form__field-wrapper contact-form__field-wrapper--textarea">
+							<textarea class="contact-form__input contact-form__input--area" name="question"
+								id="requestForm_Comment"></textarea>
+							<span class="contact-form__placeholder">Ваш вопрос</span>
+						</label>
+					</div>
+					<button class="btn btn__full contact-form__submit btn-hover "
+						onclick="sendClientInfo('', 'requestForm_Name', 'requestForm_Phone', 'requestForm_EMail', 'requestForm_Comment', 'requestForm_errorText', 'Сообщение с сайта')">Отправить
+						сообщение</button>
+					<div class="text contact-modal__text" style="background-color:lightpink; display:none;"
+						id="requestForm_errorText">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
