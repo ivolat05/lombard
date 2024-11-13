@@ -556,5 +556,14 @@
 .analysis__modal {
 	.example__acc-wrapp {
 		overflow: hidden !important;
+		opacity: 0;
 	}
+
+	.example__acc-btn.--active~.example__acc-wrapp {
+		opacity: 1;
+	}
+}
+
+.analysis__modal-window {
+	overflow: hidden;
 }
