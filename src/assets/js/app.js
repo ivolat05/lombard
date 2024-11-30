@@ -264,26 +264,19 @@ function fixedHeadTable() {
 	const wrapperElement = document.querySelector(".analysis__table-wrapp");
 	const header = document.querySelector(".header ");
 	if (fixElement && wrapperElement && header) {
+		wrapperElement.style = `padding-top:${fixElement.offsetHeight + 30}px`;
 		window.addEventListener("scroll", function () {
 			const scrollTop = window.scrollY;
 			const wrapperOffsetTop = wrapperElement.offsetTop;
 			const headerOfsetHeight =
 				document.querySelector(".header ").offsetHeight;
-			if (scrollTop > wrapperOffsetTop + headerOfsetHeight) {
+			if (scrollTop > wrapperOffsetTop + headerOfsetHeight + 60) {
 				const offsetTop =
 					scrollTop - wrapperOffsetTop - headerOfsetHeight - 30;
 
-				fixElement.style.position = "absolute";
-
-				wrapperElement.style = `padding-top:${
-					headerOfsetHeight - 30
-				}px`;
-
 				fixElement.style.top = `${offsetTop}px`;
 			} else {
-				fixElement.style.position = "";
 				fixElement.style.top = "";
-				wrapperElement.style = `padding-top:0px`;
 			}
 		});
 	}
