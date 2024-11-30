@@ -264,13 +264,13 @@ function fixedHeadTable() {
 	const wrapperElement = document.querySelector(".analysis__table-wrapp");
 	const header = document.querySelector(".header ");
 	if (fixElement && wrapperElement && header) {
-		wrapperElement.style = `padding-top:${fixElement.offsetHeight + 30}px`;
+		wrapperElement.style = `padding-top:${fixElement.offsetHeight}px`;
 		window.addEventListener("scroll", function () {
 			const scrollTop = window.scrollY;
 			const wrapperOffsetTop = wrapperElement.offsetTop;
 			const headerOfsetHeight =
 				document.querySelector(".header ").offsetHeight;
-			if (scrollTop > wrapperOffsetTop + headerOfsetHeight + 60) {
+			if (scrollTop > wrapperOffsetTop + headerOfsetHeight + 30) {
 				const offsetTop =
 					scrollTop - wrapperOffsetTop - headerOfsetHeight - 30;
 
