@@ -263,20 +263,36 @@ function fixedHeadTable() {
 	const fixElement = document.querySelector(".analysis__table-head");
 	const wrapperElement = document.querySelector(".analysis__table-wrapp");
 	const header = document.querySelector(".header ");
+
 	if (fixElement && wrapperElement && header) {
-		wrapperElement.style = `padding-top:${fixElement.offsetHeight}px`;
+		wrapperElement.style = `padding-top:${fixElement.offsetHeight - 15}px`;
 		window.addEventListener("scroll", function () {
 			const scrollTop = window.scrollY;
 			const wrapperOffsetTop = wrapperElement.offsetTop;
+			const allSelect = wrapperElement.querySelectorAll(
+				".analysis__table-select"
+			);
 			const headerOfsetHeight =
 				document.querySelector(".header ").offsetHeight;
-			if (scrollTop > wrapperOffsetTop + headerOfsetHeight + 30) {
-				const offsetTop =
-					scrollTop - wrapperOffsetTop - headerOfsetHeight - 30;
+			const controlTop = wrapperOffsetTop + headerOfsetHeight + 30;
+			const endSelectTop =
+				allSelect[allSelect.length - 1].getBoundingClientRect().top +
+				scrollTop -
+				headerOfsetHeight;
 
-				fixElement.style.top = `${offsetTop}px`;
+			if (scrollTop > controlTop && endSelectTop >= scrollTop) {
+				const offsetTopPosition =
+					scrollTop - wrapperOffsetTop - headerOfsetHeight - 30;
+				fixElement.style = "padding-top:40px";
+				fixElement.style.top = `${offsetTopPosition}px`;
+			} else if (endSelectTop < scrollTop) {
+				const endSelectPosition =
+					endSelectTop - wrapperOffsetTop - headerOfsetHeight - 30;
+				fixElement.style = "padding-top:40px";
+				fixElement.style.top = `${endSelectPosition}px`;
 			} else {
 				fixElement.style.top = "";
+				fixElement.style = "padding-top:0px";
 			}
 		});
 	}
