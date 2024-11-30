@@ -270,13 +270,15 @@ function fixedHeadTable() {
 			const scrollTop = window.scrollY;
 			const wrapperOffsetTop = wrapperElement.offsetTop;
 			const allSelect = wrapperElement.querySelectorAll(
-				".analysis__table-select"
+				".analysis__table-row"
 			);
 			const headerOfsetHeight =
 				document.querySelector(".header ").offsetHeight;
 			const controlTop = wrapperOffsetTop + headerOfsetHeight + 30;
 			const endSelectTop =
-				allSelect[allSelect.length - 1].getBoundingClientRect().top +
+				wrapperElement.getBoundingClientRect().top +
+				wrapperElement.scrollHeight -
+				allSelect[allSelect.length - 1].scrollHeight +
 				scrollTop -
 				headerOfsetHeight;
 
@@ -287,10 +289,18 @@ function fixedHeadTable() {
 				fixElement.style.top = `${offsetTopPosition}px`;
 			} else if (endSelectTop < scrollTop) {
 				const endSelectPosition =
-					endSelectTop - wrapperOffsetTop - headerOfsetHeight - 30;
+					endSelectTop -
+					wrapperOffsetTop -
+					headerOfsetHeight -
+					allSelect[allSelect.length - 1].scrollHeight +
+					30;
 				fixElement.style = "padding-top:40px";
 				fixElement.style.top = `${endSelectPosition}px`;
 			} else {
+				fixElement.style.top = "";
+				fixElement.style = "padding-top:0px";
+			}
+			if (allSelect.length === 1) {
 				fixElement.style.top = "";
 				fixElement.style = "padding-top:0px";
 			}
