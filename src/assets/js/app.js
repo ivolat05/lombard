@@ -277,8 +277,7 @@ function fixedHeadTable() {
 			const controlTop = wrapperOffsetTop + headerOfsetHeight + 30;
 			const endSelectTop =
 				wrapperElement.getBoundingClientRect().top +
-				wrapperElement.scrollHeight -
-				allSelect[allSelect.length - 1].scrollHeight +
+				wrapperElement.scrollHeight * 0.7 +
 				scrollTop -
 				headerOfsetHeight;
 
@@ -300,7 +299,7 @@ function fixedHeadTable() {
 				fixElement.style.top = "";
 				fixElement.style = "padding-top:0px";
 			}
-			if (allSelect.length === 1) {
+			if (allSelect.length <= 3) {
 				fixElement.style.top = "";
 				fixElement.style = "padding-top:0px";
 			}
